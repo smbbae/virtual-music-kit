@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(218, 207, 246);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 20px;
+  overflow-x: hidden;
+}
+
+.piano {
+  display: flex;
+  margin-top: 60px;
+  max-width: 95vh;
+  flex-shrink: 1;
+  position: relative;
+}
+
+.key {
+  cursor: pointer;
+  height: calc(var(--width) * 4);
+  width: calc(var(--width));
+}
+
+.key.white {
+  --width: 100px;
+  background-color: white;
+  border: 1px solid #333;
+}
+
+.key.white:hover {
+  opacity: 40%;
+}
+
+.key.white:active {
+  border: 3px solid black;
+}
+
+.key.black {
+  --width: 60px;
+  background-color: black;
+  border: 1px solid #333;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 1;
+}
+
+.key.black:hover {
+  background-color: #333;
+}
+
+.key.black:active {
+  transform: scale(1.1);
+}
+
+.seqContainer input {
+  border-radius: 8px;
+  border: 1px solid #5a0d5d;
+}
+
+.seqContainer input:focus {
+  border: 1px solid #380839;
+}
+
+@media (max-width: 750px) {
+  body {
+    transform: rotate(90deg);
+  }
+}
+@media (max-width: 570px) {
+  body {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 569px) {
+  .seqContainer {
+    position: absolute;
+    top: 140px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  body {
+    margin-top: 300px;
+  }
+}
